@@ -1,0 +1,16 @@
+<div id="stops_input" class='w-100 px-3'>
+  <%= simple_form_for @stop do |f| %>
+    <div class="d-flex">
+      <%= f.hidden_field :trip_id, value: @trip.id %>
+      <%= f.input :address, id:"stop_address", class:"w-100", label: false, placeholder: "Where do you want to go?" %>
+      <%= f.submit "Here", class:'btn btn-primary ml-3' %>
+    </div>
+  <% end %>
+</div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

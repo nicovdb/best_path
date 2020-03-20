@@ -1,0 +1,17 @@
+#map {
+  height: calc(100vh - 66px) !important;
+}
+
+.mapboxgl-canvas {
+  height: 100% !important;
+}
+
+#stops_input {
+  position: fixed;
+  top: 80px;
+  z-index: 1;
+}
+
+.stop_address {
+  flex-grow: 1;
+}
