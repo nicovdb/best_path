@@ -20,4 +20,10 @@ class TripsController < ApplicationController
       }
     end
   end
+
+  def finished
+    @trip = Trip.find(params[:id])
+    @trip.update(finished: true)
+    redirect_to trip_path(@trip)
+  end
 end
