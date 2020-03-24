@@ -15,7 +15,8 @@ class TripsController < ApplicationController
     @markers = @trip.stops.map do |stop|
       {
         lat: stop.latitude,
-        lng: stop.longitude
+        lng: stop.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { stop: stop })
       }
     end
   end
