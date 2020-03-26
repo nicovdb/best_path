@@ -3,11 +3,11 @@
     <div class="d-flex">
       <%= f.hidden_field :trip_id, value: @trip.id %>
       <%= f.input :address, id:"stop_address", class:"w-100", label: false, placeholder: "Where do you want to go?" %>
-      <%= f.submit "Here", class:'btn btn-primary ml-3' %>
+      <%= f.submit "Here", class:'btn btn-primary btn-submit ml-3' %>
     </div>
   <% end %>
-  <p>Lancer le calcuuuuul</p>
 </div>
+
 <div
   id="map"
   style="width: 100%;
@@ -17,5 +17,21 @@
   data-finished="<%= @trip.finished? %>"
   data-coordinates="<%= @trip.coordinates %>"
 ></div>
+
+<div id="trip-infos">
+  <p id="cycling">cycling</p>
+  <p id="driving">driving</p>
+  <p id="walking">walking</p>
+  <div class="d-flex justify-content-center trip-infos-card">
+    <div class="trip-infos-individual">
+      <h3 id="minutes">0</h3>
+      <h4>minutes</h4>
+    </div>
+    <div class="trip-infos-individual">
+      <h3 id="km">0</h3>
+      <h4>km</h4>
+    </div>
+  </div>
+</div>
 
 

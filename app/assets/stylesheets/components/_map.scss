@@ -10,6 +10,11 @@
   position: fixed;
   top: 80px;
   z-index: 1;
+
+}
+
+.btn-submit {
+  height: 38px !important;
 }
 
 .stop_address {
@@ -44,6 +49,39 @@
   background: #FAB229;
 }
 
-h2.info-window {
-  font-size: 16px;
+.info-window {
+  h2 {
+    font-size: 16px;
+  }
+  img {
+    width: 40px;
+  }
+}
+
+#trip-infos {
+  width: 160px;
+  position: fixed;
+  bottom: 32px;
+  left: 16px;
+  z-index: 1;
+}
+
+.trip-infos-card {
+  background-color: #2F5174;
+  border-radius: 3px;
+  // padding: 0.8rem;
+  text-align: center;
+}
+
+.trip-infos-individual {
+  padding: 0.8rem;
+  color: white;
+  width: 80px;
+  h3 {
+    font-size: 18px;
+  }
+  h4{
+    font-size: 12px;
+    color: #B9C5D2;
+  }
 }

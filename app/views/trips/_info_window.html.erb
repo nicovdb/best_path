@@ -1,2 +1,5 @@
-<h2 class="info-window"><%= stop.address %></h2>
-<%= link_to "Delete", stop_path(stop), method: :delete, class:"btn btn-danger" %>
+<div class="info-window">
+  <%= image_tag "stop.png" %>
+  <h2 class="info-window mt-2"><%= stop.address %></h2>
+  <%= link_to "Delete", stop_path(stop), method: :delete, class:"btn" %>
+</div>
