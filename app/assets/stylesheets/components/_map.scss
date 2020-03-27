@@ -1,5 +1,5 @@
 #map {
-  height: calc(100vh - 66px) !important;
+  height: calc(100vh - 59px) !important;
 }
 
 .mapboxgl-canvas {
@@ -8,7 +8,7 @@
 
 #stops_input {
   position: fixed;
-  top: 80px;
+  top: 70px;
   z-index: 1;
 
 }
@@ -66,15 +66,27 @@
   z-index: 1;
 }
 
+.trip-infos-profile {
+  border-radius: 3px 3px 0 0;
+  border: 2px solid #2F5174;
+  color: #B9C5D2;
+}
+
+.trip-infos-profile span {
+  cursor: pointer;
+}
+
+.trip-infos-profile span.active {
+  color: #2F5174;
+}
+
 .trip-infos-card {
   background-color: #2F5174;
-  border-radius: 3px;
-  // padding: 0.8rem;
+  border-radius: 0 0 3px 3px;
   text-align: center;
 }
 
 .trip-infos-individual {
-  padding: 0.8rem;
   color: white;
   width: 80px;
   h3 {
@@ -84,4 +96,11 @@
     font-size: 12px;
     color: #B9C5D2;
   }
+}
+
+#trip-save {
+  position: fixed;
+  bottom: 32px;
+  right: 16px;
+  z-index: 1;
 }

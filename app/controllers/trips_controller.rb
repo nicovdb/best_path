@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   end
 
   def create
+    current_user.trips.where(finished: false).destroy_all
     @trip = Trip.create(user: current_user)
     redirect_to trip_path(@trip)
   end
@@ -19,6 +20,10 @@ class TripsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { stop: stop })
       }
     end
+  end
+
+  def index
+    @trips = current_user.trips.where(finished: true)
   end
 
   def finished

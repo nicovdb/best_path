@@ -30,7 +30,7 @@ const initMapbox = () => {
 
       const bounds = new mapboxgl.LngLatBounds();
       markersCopy.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-      map.fitBounds(bounds, { padding: 100, maxZoom: 15, duration: 0 });
+      map.fitBounds(bounds, { padding: 100, maxZoom: 14, duration: 0 });
     };
 
     let truckLocation = [-0.5654924, 44.8592094];
@@ -141,26 +141,38 @@ const initMapbox = () => {
       }, 'waterway-label');
 
       let profile = "walking";
+      setRoute(profile);
 
       const cycling = document.getElementById("cycling");
+      const driving = document.getElementById("driving");
+      const walking = document.getElementById("walking");
+
       cycling.addEventListener("click", (e) => {
         profile = "cycling";
+        cycling.classList.remove("active");
+        walking.classList.remove("active");
+        driving.classList.remove("active");
+        cycling.classList.add("active");
         setRoute(profile);
       });
 
-      const driving = document.getElementById("driving");
       driving.addEventListener("click", (e) => {
         profile = "driving";
+        cycling.classList.remove("active");
+        walking.classList.remove("active");
+        driving.classList.remove("active");
+        driving.classList.add("active");
         setRoute(profile);
       });
 
-      const walking = document.getElementById("walking");
       walking.addEventListener("click", (e) => {
         profile = "walking";
+        cycling.classList.remove("active");
+        walking.classList.remove("active");
+        driving.classList.remove("active");
+        walking.classList.add("active");
         setRoute(profile);
       });
-
-      setRoute(profile);
 
       function setRoute(profile) {
         markers.forEach((marker) => {
@@ -190,6 +202,7 @@ const initMapbox = () => {
         method: 'GET',
         url: assembleQueryURL(profile)
       }).done(function(data) {
+        console.log(data);
         // Create a GeoJSON feature collection
         var routeGeoJSON = turf.featureCollection([
           turf.feature(data.trips[0].geometry)
