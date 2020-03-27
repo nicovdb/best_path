@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   end
 
   def create
+    current_user.trips.where(finished: false).destroy_all
     @trip = Trip.create(user: current_user)
     redirect_to trip_path(@trip)
   end
@@ -15,8 +16,19 @@ class TripsController < ApplicationController
     @markers = @trip.stops.map do |stop|
       {
         lat: stop.latitude,
-        lng: stop.longitude
+        lng: stop.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { stop: stop })
       }
     end
+  end
+
+  def index
+    @trips = current_user.trips.where(finished: true)
+  end
+
+  def finished
+    @trip = Trip.find(params[:id])
+    @trip.update(finished: true)
+    redirect_to trip_path(@trip)
   end
 end

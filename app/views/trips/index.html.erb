@@ -1,0 +1,8 @@
+<h1>My waaaaays</h1>
+<ul>
+  <% @trips.each do |trip| %>
+    <li>
+      <%= trip.stops.first.address.split(",")[1] %>
+    </li>
+  <% end %>
+</ul>
